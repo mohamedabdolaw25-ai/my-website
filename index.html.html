@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المجد للاستشارات القانونية - محمد عبده</title>
+    
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: '#D4AF37',
+                        goldHover: '#B5952F',
+                        darkBg: '#0A0F1A',
+                        cardBg: '#131B2F',
+                        borderColor: '#25324D'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #0A0F1A;
+            color: #e2e8f0;
+        }
+        /* Custom Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #D4AF37, #FFF5D1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Glassmorphism effect for navbar */
+        .glass-nav {
+            background: rgba(10, 15, 26, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        /* Custom Card Hover Effect */
+        .hover-card {
+            transition: all 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            border-color: #D4AF37;
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.2);
+        }
+        /* Ambient Background */
+        .hero-bg {
+            background-image: radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.08), transparent 25%),
+                              radial-gradient(circle at 85% 30%, rgba(37, 50, 77, 0.4), transparent 25%);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-gold selection:text-darkBg">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <!-- Navbar Logo -->
+                    <img id="nav-logo" src="file_0000000046f461f4a5ab93c924dd1a69.jpg" alt="AL MAJD" class="w-12 h-12 rounded-full border border-gold object-cover shadow-[0_0_10px_rgba(212,175,55,0.3)]">
+                    <a href="#" class="font-bold text-2xl tracking-widest text-white uppercase font-serif">
+                        AL <span class="text-gold">MAJD</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 space-x-reverse">
+                    <a href="#home" class="text-gray-300 hover:text-gold transition font-semibold text-lg">الرئيسية</a>
+                    <a href="#about" class="text-gray-300 hover:text-gold transition font-semibold text-lg">عني</a>
+                    <a href="#expertise" class="text-gray-300 hover:text-gold transition font-semibold text-lg">خبراتي</a>
+                    <a href="#skills" class="text-gray-300 hover:text-gold transition font-semibold text-lg">المهارات</a>
+                    <a href="#contact" class="px-6 py-2 rounded-full border border-gold text-gold hover:bg-gold hover:text-darkBg transition font-bold">تواصل معي</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardBg border-t border-borderColor">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#home" class="block px-3 py-2 text-gray-300 hover:text-gold font-medium">الرئيسية</a>
+                <a href="#about" class="block px-3 py-2 text-gray-300 hover:text-gold font-medium">عني</a>
+                <a href="#expertise" class="block px-3 py-2 text-gray-300 hover:text-gold font-medium">خبراتي</a>
+                <a href="#skills" class="block px-3 py-2 text-gray-300 hover:text-gold font-medium">المهارات</a>
+                <a href="#contact" class="block px-3 py-2 text-gold font-bold">تواصل معي</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center hero-bg pt-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="text-center max-w-4xl mx-auto">
+                <!-- Main Logo with Upload Feature -->
+                <div class="relative inline-block group cursor-pointer mb-8" onclick="document.getElementById('logo-upload').click()" title="تغيير الشعار">
+                    <img id="hero-logo" src="file_0000000046f461f4a5ab93c924dd1a69.jpg" alt="مؤسسة المجد" class="w-40 h-40 mx-auto rounded-full border-2 border-gold shadow-[0_0_30px_rgba(212,175,55,0.3)] object-cover group-hover:blur-[2px] transition duration-300">
+                    <div class="absolute inset-0 bg-black/50 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <i class="fa-solid fa-camera text-white text-3xl mb-1"></i>
+                        <span class="text-white text-xs font-bold">تغيير الشعار</span>
+                    </div>
+                </div>
+                
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-borderColor bg-cardBg/50 text-gold mb-6 text-sm font-semibold tracking-wider">
+                    <i class="fa-solid fa-gavel"></i>
+                    العدالة، المعرفة، والاحترافية
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 uppercase tracking-widest" style="font-family: 'Times New Roman', serif;">
+                    AL <span class="text-gradient">MAJD</span>
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-300 mb-6">
+                    المجد للاستشارات القانونية
+                </h2>
+                <div class="inline-block bg-darkBg border border-gold/30 rounded-xl px-6 py-3 mb-8">
+                    <p class="text-lg text-gold font-bold">
+                        بإدارة / محمد عبده
+                    </p>
+                    <p class="text-sm text-gray-400">رجل قانون وباحث في العلوم القانونية والجنائية</p>
+                </div>
+                <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    نجمع بين دقة البحث القانوني وعمق الممارسة، مع شغف دائم بتقديم استشارات قانونية متكاملة وتدريب الكوادر بأسلوب أكاديمي وعملي.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contact" class="bg-gold hover:bg-goldHover text-darkBg font-bold py-4 px-8 rounded-full transition shadow-[0_0_20px_rgba(212,175,55,0.3)] text-lg flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-handshake"></i> استشارة أو تعاون
+                    </a>
+                    <a href="#expertise" class="bg-transparent border-2 border-borderColor hover:border-gold text-white font-bold py-4 px-8 rounded-full transition text-lg flex items-center justify-center gap-2">
+                        تعرف على خبراتي <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-cardBg/30 border-y border-borderColor">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Image/Visual placeholder -->
+                <div class="relative">
+                    <div class="aspect-[4/5] rounded-2xl overflow-hidden border-2 border-borderColor relative z-10 bg-darkBg group cursor-pointer" onclick="document.getElementById('profile-upload').click()" title="تغيير الصورة الشخصية">
+                        <!-- Personal Photo -->
+                        <img id="about-profile" src="1758923749536.jpg" alt="محمد عبده" class="w-full h-full object-cover group-hover:blur-sm transition duration-300">
+                        <!-- Edit Overlay -->
+                        <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                            <i class="fa-solid fa-camera text-white text-5xl mb-2"></i>
+                            <span class="text-white text-lg font-bold">تحديث الصورة الشخصية</span>
+                        </div>
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-gold rounded-2xl z-0 hidden lg:block"></div>
+                </div>
+
+                <!-- Text Content -->
+                <div>
+                    <h3 class="text-gold font-bold tracking-wider mb-2 text-lg">من أنا؟</h3>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">رؤية قانونية وإدارية <span class="text-gradient">متكاملة</span></h2>
+                    
+                    <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
+                        <p>
+                            بصفتي <strong>باحثاً قانونياً ومحاضراً</strong>، أكرس جهودي للتعمق في العلوم الجنائية والتشريعات الحديثة، لتقديم حلول واستشارات قانونية دقيقة وموثوقة.
+                        </p>
+                        <p>
+                            لا يقتصر دوري على الجانب القانوني البحت، بل أؤمن بأهمية دمج <strong>المهارات الإدارية والموارد البشرية</strong> لخلق بيئات عمل احترافية. أمتلك خبرة معتمدة في التحليل الوظيفي، استراتيجيات التسويق، وإدارة الأعمال.
+                        </p>
+                    </div>
+
+                    <div class="mt-10 grid grid-cols-2 gap-6">
+                        <div class="border-r-2 border-gold pr-4">
+                            <h4 class="text-white font-bold text-xl mb-1">باحث قانوني</h4>
+                            <p class="text-sm text-gray-400">في العلوم الجنائية</p>
+                        </div>
+                        <div class="border-r-2 border-gold pr-4">
+                            <h4 class="text-white font-bold text-xl mb-1">محاضر معتمد</h4>
+                            <p class="text-sm text-gray-400">للتأهيل والتدريب</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise & Diplomas Section -->
+    <section id="expertise" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-gold font-bold tracking-wider mb-2 text-lg">مجالات التخصص</h3>
+                <h2 class="text-3xl md:text-5xl font-bold text-white">خبرات علمية <span class="text-gradient">وعملية</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-cardBg border border-borderColor rounded-2xl p-8 hover-card group">
+                    <div class="w-16 h-16 bg-darkBg rounded-xl flex items-center justify-center mb-6 group-hover:bg-gold/10 transition">
+                        <i class="fa-solid fa-scale-unbalanced text-gold text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">العلوم القانونية والجنائية</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        تحليل متعمق للنصوص التشريعية، بحث متخصص في القضايا الجنائية، وتقديم استشارات قانونية دقيقة لحماية الحقوق والمؤسسات.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-cardBg border border-borderColor rounded-2xl p-8 hover-card group">
+                    <div class="w-16 h-16 bg-darkBg rounded-xl flex items-center justify-center mb-6 group-hover:bg-gold/10 transition">
+                        <i class="fa-solid fa-users-gear text-gold text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">الموارد البشرية (HR)</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        شهادات معتمدة في تصميم الوظائف (Job Design)، التحليل الوظيفي، واجتياز وإدارة المقابلات الشخصية بنجاح.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-cardBg border border-borderColor rounded-2xl p-8 hover-card group">
+                    <div class="w-16 h-16 bg-darkBg rounded-xl flex items-center justify-center mb-6 group-hover:bg-gold/10 transition">
+                        <i class="fa-solid fa-chart-pie text-gold text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">إدارة الأعمال والتسويق</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        تأهيل علمي في أساسيات إدارة الأعمال والتسويق لبناء استراتيجيات تنظيمية تدعم اتخاذ القرار.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-cardBg/30 border-y border-borderColor">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-gold font-bold tracking-wider mb-2 text-lg">القدرات الشخصية</h3>
+                <h2 class="text-3xl md:text-5xl font-bold text-white">مهارات <span class="text-gradient">التنمية البشرية والتقنية</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Soft Skills List -->
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-white mb-6 border-b border-borderColor pb-4">المهارات الشخصية (Soft Skills)</h3>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1"><i class="fa-solid fa-circle-check text-gold"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">مهارات التواصل ولغة الجسد</h4>
+                            <p class="text-gray-400 text-sm">بناء بيئة تواصل إيجابية وقراءة الإيماءات بفاعلية.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1"><i class="fa-solid fa-circle-check text-gold"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">مهارات العرض والتقديم (Presentation)</h4>
+                            <p class="text-gray-400 text-sm">إيصال الأفكار المعقدة بأسلوب مبسط ومقنع للجمهور.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1"><i class="fa-solid fa-circle-check text-gold"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">وضع الاستراتيجيات واتخاذ القرارات</h4>
+                            <p class="text-gray-400 text-sm">تحليل المعطيات وبناء خطط طويلة الأمد.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1"><i class="fa-solid fa-circle-check text-gold"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">إدارة الوقت وحل المشكلات</h4>
+                            <p class="text-gray-400 text-sm">تنظيم الأولويات للتعامل مع التحديات بمرونة.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1"><i class="fa-solid fa-circle-check text-gold"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">العمل الجماعي (Team Work)</h4>
+                            <p class="text-gray-400 text-sm">التعاون المثمر لتحقيق الأهداف المشتركة للمؤسسة.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IT Skills & Diplomas -->
+                <div class="bg-cardBg border border-borderColor rounded-2xl p-8 relative overflow-hidden">
+                    <i class="fa-solid fa-laptop-code absolute -bottom-10 -left-10 text-9xl text-white/5 z-0"></i>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold text-white mb-6">المهارات التقنية والدبلومات</h3>
+                        <div class="bg-darkBg p-6 rounded-xl border border-borderColor mb-4">
+                            <h4 class="text-xl font-bold text-gold mb-2">المهارات المتكاملة (IC3)</h4>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                حاصل على دبلوم شامل بتقدير امتياز من مركز تكنولوجيا المعلومات، يغطي أساسيات الحاسب الآلي وتطبيقاته بفاعلية عالية.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-cardBg px-3 py-1 text-xs text-gray-300 border border-borderColor rounded-md">Windows</span>
+                                <span class="bg-cardBg px-3 py-1 text-xs text-gray-300 border border-borderColor rounded-md">MS Office</span>
+                                <span class="bg-cardBg px-3 py-1 text-xs text-gray-300 border border-borderColor rounded-md">Networks</span>
+                                <span class="bg-cardBg px-3 py-1 text-xs text-gray-300 border border-borderColor rounded-md">Maintenance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <!-- Background accents -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-900/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <i class="fa-regular fa-envelope-open text-gold text-5xl mb-6"></i>
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">لنبقَ على <span class="text-gradient">تواصل</span></h2>
+            <p class="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
+                سواء كنت تبحث عن استشارة قانونية، أو ترغب في التعاون الأكاديمي والتدريبي، يسعدني دائماً تواصلك.
+            </p>
+
+            <!-- Direct Contact Info -->
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
+                <a href="https://wa.me/201003674943" target="_blank" class="flex items-center gap-4 bg-cardBg border border-borderColor hover:border-gold hover:bg-cardBg/80 transition px-8 py-4 rounded-xl w-full md:w-auto">
+                    <i class="fa-brands fa-whatsapp text-green-500 text-3xl"></i>
+                    <div class="text-right">
+                        <span class="block text-xs text-gray-400">واتساب / اتصال</span>
+                        <span class="block text-white font-bold font-sans dir-ltr tracking-wider">0100 367 4943</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Social Links Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+                <a href="https://www.facebook.com/mohamed2abdo2" target="_blank" class="flex flex-col items-center justify-center p-6 bg-cardBg border border-borderColor rounded-xl hover:border-[#1877F2] hover:-translate-y-2 transition group">
+                    <i class="fa-brands fa-facebook text-3xl text-gray-500 group-hover:text-[#1877F2] transition mb-3"></i>
+                    <span class="text-sm font-semibold text-gray-300">فيسبوك</span>
+                </a>
+                
+                <a href="https://www.instagram.com/mohammed_abdo_142003/?__pwa=1" target="_blank" class="flex flex-col items-center justify-center p-6 bg-cardBg border border-borderColor rounded-xl hover:border-[#E4405F] hover:-translate-y-2 transition group">
+                    <i class="fa-brands fa-instagram text-3xl text-gray-500 group-hover:text-[#E4405F] transition mb-3"></i>
+                    <span class="text-sm font-semibold text-gray-300">إنستجرام</span>
+                </a>
+
+                <a href="https://t.me/MOHAMED_ABDO_2003" target="_blank" class="flex flex-col items-center justify-center p-6 bg-cardBg border border-borderColor rounded-xl hover:border-[#229ED9] hover:-translate-y-2 transition group">
+                    <i class="fa-brands fa-telegram text-3xl text-gray-500 group-hover:text-[#229ED9] transition mb-3"></i>
+                    <span class="text-sm font-semibold text-gray-300">تليجرام</span>
+                </a>
+                
+                <a href="tel:01003674943" class="flex flex-col items-center justify-center p-6 bg-cardBg border border-borderColor rounded-xl hover:border-gold hover:-translate-y-2 transition group">
+                    <i class="fa-solid fa-phone text-3xl text-gray-500 group-hover:text-gold transition mb-3"></i>
+                    <span class="text-sm font-semibold text-gray-300">اتصال مباشر</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darkBg border-t border-borderColor py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <!-- Footer Logo -->
+                <img id="footer-logo" src="file_0000000046f461f4a5ab93c924dd1a69.jpg" alt="AL MAJD" class="w-10 h-10 rounded-full object-cover border border-gold/50">
+                <span class="font-bold text-white tracking-widest uppercase">AL MAJD</span>
+            </div>
+            <p class="text-gray-500 text-sm text-center md:text-right">
+                © 2026 مؤسسة المجد - محمد عبده. جميع الحقوق محفوظة. 
+            </p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+
+    <!-- Hidden File Inputs for Image Upload -->
+    <input type="file" id="logo-upload" accept="image/*" class="hidden">
+    <input type="file" id="profile-upload" accept="image/*" class="hidden">
+
+    <!-- Image Upload & LocalStorage Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Load saved images from LocalStorage on page load
+            const savedLogo = localStorage.getItem('site_logo');
+            if (savedLogo) {
+                document.getElementById('hero-logo').src = savedLogo;
+                document.getElementById('nav-logo').src = savedLogo;
+                document.getElementById('footer-logo').src = savedLogo;
+            }
+
+            const savedProfile = localStorage.getItem('site_profile');
+            if (savedProfile) {
+                document.getElementById('about-profile').src = savedProfile;
+            }
+
+            // 2. Handle Logo Upload
+            document.getElementById('logo-upload').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        const base64Str = event.target.result;
+                        try {
+                            // Save to localStorage
+                            localStorage.setItem('site_logo', base64Str);
+                            // Update UI
+                            document.getElementById('hero-logo').src = base64Str;
+                            document.getElementById('nav-logo').src = base64Str;
+                            document.getElementById('footer-logo').src = base64Str;
+                        } catch (err) {
+                            alert("حجم الصورة كبير جداً لكي يتم حفظه في الذاكرة المؤقتة، يرجى اختيار صورة بحجم أصغر (يفضل أقل من 3 ميجابايت).");
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // 3. Handle Profile Photo Upload
+            document.getElementById('profile-upload').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        const base64Str = event.target.result;
+                        try {
+                            // Save to localStorage
+                            localStorage.setItem('site_profile', base64Str);
+                            // Update UI
+                            document.getElementById('about-profile').src = base64Str;
+                        } catch (err) {
+                            alert("حجم الصورة كبير جداً لكي يتم حفظه في الذاكرة المؤقتة، يرجى اختيار صورة بحجم أصغر.");
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
